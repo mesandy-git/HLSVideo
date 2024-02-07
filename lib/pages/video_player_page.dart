@@ -1,13 +1,12 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
-import 'package:hls_video_player/model/videos_model.dart';
-import 'package:hls_video_player/pages/control_overlay.dart';
-import 'package:hls_video_player/parser/hls/vdo_player_hls_utils.dart';
-import 'package:hls_video_player/parser/hls/hls_parser/vdo_player_asms_track.dart';
+import '../model/videos_model.dart';
+import '../pages/control_overlay.dart';
+import '../parser/hls/vdo_player_hls_utils.dart';
+import '../parser/hls/hls_parser/vdo_player_asms_track.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerPage extends StatefulWidget {
@@ -91,8 +90,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                       GestureDetector(
                         onTap: () {
                           _overlayVisibility = !_overlayVisibility;
-                          resetTimer();
-                          setState(() {});
+                          setState(() {
+                            resetTimer();
+                          });
                         },
                         child: Container(
                           color: Colors.black,
@@ -104,8 +104,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                         child: GestureDetector(
                           onTap: () {
                             _overlayVisibility = !_overlayVisibility;
-                            resetTimer();
-                            setState(() {});
+                            setState(() {
+                              resetTimer();
+                            });
                           },
                           child: ControlsOverlay(
                             controller: _controller,
@@ -150,6 +151,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   void fullScreen() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
+    // Force to screen landscape for full screen
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft]);
@@ -157,15 +159,13 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   // On Resolution Update
   Future<void> changeResolution(VdoPlayerAsmsTrack track) async {
-    log('${track.variant?.url}  height - ${track.height} width - ${track.width}');
     late VideoPlayerController controller;
     _selectedTrack = track;
     controller = VideoPlayerController.networkUrl(track.variant!.url,
         videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true))
       ..initialize().then(
         (_) async {
-          Duration? position = await _controller.position;
-          await controller.seekTo(position!);
+          await controller.seekTo((await _controller.position)!);
           await _controller.pause();
           _controller.dispose();
           _controller = controller;
@@ -192,7 +192,6 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   stateChangeListner() {
     _controller.setVolume(1.0);
     _controller.addListener(() {
-      log('Player State Change');
       setState(() {});
     });
   }

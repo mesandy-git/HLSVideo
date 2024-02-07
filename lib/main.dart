@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:hls_video_player/pages/videos_list.dart';
+import 'package:hls_video_player/pages/videos_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const ListScreen(),
+      home: const VideoListPage(),
     );
   }
 }

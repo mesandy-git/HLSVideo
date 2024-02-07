@@ -1,5 +1,5 @@
 name: hls_video_player
-description: A new Flutter project.
+description: HLS Video Player
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -38,6 +38,7 @@ dependencies:
   video_player: ^2.8.2
   dio: ^5.4.0
   get: ^4.6.6
+  internet_connection_checker_plus: ^2.2.0
 
 dev_dependencies:
   flutter_test:

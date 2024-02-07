@@ -1,11 +1,11 @@
 [
     {
-        "title": "Skate Phantom Flex 4k",
-        "url": "http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8"
-    },
-    {
         "title": "Big Buck Bunny",
         "url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+    },
+    {
+        "title": "Skate Phantom Flex 4k",
+        "url": "http://sample.vodobox.net/skate_phantom_flex_4k/skate_phantom_flex_4k.m3u8"
     },
     {
         "title": "Tears of Steel",
