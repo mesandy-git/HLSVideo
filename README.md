@@ -1,16 +1,29 @@
 # HLS Video Player
 
-Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+# Running the Flutter Project
 
-A few resources to get you started if this is your first Flutter project:
+To run this Flutter project locally on your machine, please follow these steps:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Prerequisites
+1. Make sure you have Flutter installed on your system. If not, you can follow the installation instructions provided on the Flutter website.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Cloning the Repository
+1. Clone this GitHub repository to your local machine using the following command:
+   git clone <repository-url>
+
+# Navigating to the Project Directory
+1. Navigate into the cloned repository directory:
+   cd <repository-folder-name>
+
+# Installing Dependencies
+1. Run the following command to install the project dependencies:
+   flutter pub get
+
+# Running the Application
+1. Connect your mobile device or emulator.
+2. Launch the application using the following command:
+   flutter run
+
+This command will build the Flutter project and deploy it to your connected device or emulator.
