@@ -1,6 +1,6 @@
-# hls_video_player
+# HLS Video Player
 
-A new Flutter project.
+Flutter project.
 
 ## Getting Started
 
